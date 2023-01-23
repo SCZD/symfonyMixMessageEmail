@@ -1,0 +1,43 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+
+register:
+    path: /register
+    controller: App\Controller\UserController::register
+
+login:
+    path: /login
+    controller: App\Controller\UserController::login
+logout:
+    path: /logout
+
+mail:
+    path: /mail
+    controller: App\Controller\MessageController::viewServices
+
+inbox:
+    path: /mail/inbox
+    controller: App\Controller\MessageController::inbox
+
+send:
+    path: /mail/send
+    controller: App\Controller\MessageController::send
+    
+create:
+    path: /mail/create
+    controller: App\Controller\MessageController::create
+
+view:
+    path: /mail/view/{id}
+    controller: App\Controller\MessageController::view
+
+delete:
+    path: /mail/delete/{id}
+    controller: App\Controller\MessageController::delete
+
+homepage:
+    path: /
+    controller: App\Controller\MessageController::viewServices
