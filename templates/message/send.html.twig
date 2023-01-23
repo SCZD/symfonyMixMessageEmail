@@ -1,0 +1,22 @@
+{% block title %}Hello InboxControllersss! {% endblock %}
+
+{% block body %}
+<style>
+    
+</style>
+
+    <h1>Hello {{app.user.fullname}}</h1>
+    {% for message in messages|reverse %}
+        <li>{{ message.getToEmail() }}</li>
+        <li>{{ message.getSubject() }}</li>
+        <li>{{ message.getComposeEmail() }}</li>
+
+        {% if message.isViewed() %}
+            <li>Visto</li>
+        {% else %}
+            <li>No visto</li>
+        {% endif %}
+        <br><br>
+    {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% block title %}Hello InboxControllersss! {% endblock %}
+
+{% block body %}
+<style>
+    
+</style>
+
+    <h1>Hello {{app.user.fullname}}</h1>
+    {% for message in messages %}
+        <li>{{ message.getUser().getEmail() }}</li>
+        <li>{{ message.getSubject() }}</li>
+        <li>{{ message.getComposeEmail() }}</li>
+
+        {% if message.isViewed() %}
+            <li>Visto</li>
+        {% else %}
+            <li>No visto</li>
+        {% endif %}
+        <li><a href="{{ path('view',{'id':message.getId()}) }}">Ver mensaje</a></li>
+        <li><a href="{{ path('delete',{'id':message.getId()}) }}">Borrar mensaje</a></li>
+        <br><br>
+    {% endfor %}
+
+{% endblock %}

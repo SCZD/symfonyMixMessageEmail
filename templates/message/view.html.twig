@@ -1,0 +1,26 @@
+
+{% block title %}View email page{% endblock %}
+
+{% block body %}
+<style>
+    
+</style>
+
+<div>
+        <li>{{ message.getUser().getEmail() }}</li>
+        <li>{{ message.getSubject() }}</li>
+        <li>{{ message.getComposeEmail() }}</li>
+        {% if message.isViewed() %}
+            <li>Visto</li>
+        {% else %}
+            <li>No visto</li>
+        {% endif %}
+        <li><a href="{{ path('inbox') }}">A tras</a></li>
+
+        {{ form_start(form) }}
+            {{ form_widget(form) }}
+        {{ form_end(form) }}
+
+</div>
+
+{% endblock %}

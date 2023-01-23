@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Pagina principal de la pagina{% endblock %}</title>
+    </head>
+    <body>
+        {% if app.user %}
+            {{ dump(app.user) }}
+            <ul>
+                <li>{{ app.user.fullname }}</li>
+                <li><a href="{{ path('logout') }}">Logout</a></li>
+            </ul>
+        {% else %}
+            <ul>
+                <li><a href="{{ path('login') }}">Login</a></li>
+                <li><a href="{{ path('register') }}">Register</a></li>
+            </ul>
+        {% endif %}
+    </body>
+</html>
